@@ -13,7 +13,7 @@ RUN apt-get update --fix-missing && \
     rm -rf /var/lib/apt/lists/*
 
 RUN cd /tmp && \
-  wget -O icc.tgz http://registrationcenter-download.intel.com/akdlm/irc_nas/tec/13003/parallel_studio_xe_2018_update3_composer_edition_for_cpp_online.tgz && \
+  wget -O icc.tgz http://registrationcenter-download.intel.com/akdlm/irc_nas/tec/16744/parallel_studio_xe_2020_update2_cluster_edition_online.tgz && \
   tar -xvzf icc.tgz && \
   cd /tmp/parallel_studio_xe_* && \
   bash ./install.sh --silent=/tmp/icc-config.cfg && \
@@ -21,7 +21,7 @@ RUN cd /tmp && \
   rm -rf parallel_studio_xe_* icc.tgz && \
   rm /tmp/icc-config.cfg
 
-RUN echo "source /opt/intel/parallel_studio_xe_2018/compilers_and_libraries_2018/linux/pkg_bin/compilervars.sh intel64 \&\& source /opt/intel/parallel_studio_xe_2018/compilers_and_libraries_2018/linux/mkl/bin/mklvars.sh intel64" >> ~/.bashrc
+RUN echo "source /opt/intel//intel/compilers_and_libraries/linux/bin/compilervars.sh intel64 \&\& source /opt/intel/compilers_and_libraries/linux/mkl/bin/mklvars.sh intel64" >> ~/.bashrc
 
 ENV CC=icc CXX=icpc
 
